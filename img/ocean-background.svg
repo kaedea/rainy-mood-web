@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <!-- 背景渐变 -->
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a3d62" />
+      <stop offset="100%" stop-color="#1e5f74" />
+    </linearGradient>
+    <linearGradient id="oceanGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e5f74" />
+      <stop offset="100%" stop-color="#0a3d62" />
+    </linearGradient>
+    <radialGradient id="moonGlow" cx="80%" cy="20%" r="10%" fx="80%" fy="20%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.7)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+    </radialGradient>
+  </defs>
+  
+  <!-- 天空背景 -->
+  <rect width="100%" height="50%" fill="url(#skyGradient)" />
+  
+  <!-- 海洋背景 -->
+  <rect y="50%" width="100%" height="50%" fill="url(#oceanGradient)" />
+  
+  <!-- 月亮 -->
+  <circle cx="1600" cy="200" r="60" fill="rgba(255, 255, 255, 0.8)" />
+  <rect width="100%" height="100%" fill="url(#moonGlow)" />
+  
+  <!-- 星星 -->
+  <g opacity="0.8">
+    <circle cx="200" cy="100" r="1" fill="white" />
+    <circle cx="300" cy="150" r="1.5" fill="white" />
+    <circle cx="500" cy="80" r="1" fill="white" />
+    <circle cx="700" cy="200" r="1.5" fill="white" />
+    <circle cx="900" cy="120" r="1" fill="white" />
+    <circle cx="1100" cy="180" r="1.5" fill="white" />
+    <circle cx="1300" cy="90" r="1" fill="white" />
+    <circle cx="1500" cy="150" r="1.5" fill="white" />
+    <circle cx="1700" cy="100" r="1" fill="white" />
+    <circle cx="1800" cy="200" r="1.5" fill="white" />
+    <circle cx="100" cy="250" r="1" fill="white" />
+    <circle cx="400" cy="220" r="1.5" fill="white" />
+    <circle cx="600" cy="300" r="1" fill="white" />
+    <circle cx="800" cy="270" r="1.5" fill="white" />
+    <circle cx="1000" cy="320" r="1" fill="white" />
+    <circle cx="1200" cy="280" r="1.5" fill="white" />
+    <circle cx="1400" cy="330" r="1" fill="white" />
+    <circle cx="1600" cy="290" r="1.5" fill="white" />
+    <circle cx="1800" cy="340" r="1" fill="white" />
+  </g>
+  
+  <!-- 海平面 -->
+  <line x1="0" y1="540" x2="1920" y2="540" stroke="rgba(255,255,255,0.3)" stroke-width="1" />
+  
+  <!-- 波浪 -->
+  <g opacity="0.5">
+    <path d="M0,550 C80,530 160,570 240,550 C320,530 400,570 480,550 C560,530 640,570 720,550 C800,530 880,570 960,550 C1040,530 1120,570 1200,550 C1280,530 1360,570 1440,550 C1520,530 1600,570 1680,550 C1760,530 1840,570 1920,550 L1920,1080 L0,1080 Z" fill="rgba(255,255,255,0.1)" />
+    
+    <path d="M0,600 C100,580 200,620 300,600 C400,580 500,620 600,600 C700,580 800,620 900,600 C1000,580 1100,620 1200,600 C1300,580 1400,620 1500,600 C1600,580 1700,620 1800,600 C1900,580 2000,620 2100,600 L1920,1080 L0,1080 Z" fill="rgba(255,255,255,0.05)" />
+    
+    <path d="M0,650 C120,630 240,670 360,650 C480,630 600,670 720,650 C840,630 960,670 1080,650 C1200,630 1320,670 1440,650 C1560,630 1680,670 1800,650 C1920,630 2040,670 2160,650 L1920,1080 L0,1080 Z" fill="rgba(255,255,255,0.03)" />
+  </g>
+  
+  <!-- 月光反射 -->
+  <path d="M1540,540 C1560,550 1580,540 1600,550 C1620,540 1640,550 1660,540 L1600,1080 L1540,1080 Z" fill="rgba(255,255,255,0.1)" />
+</svg>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainy Mood - 雨声播放器</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <div class="container">
+        <!-- 背景和雨滴效果 -->
+        <div class="glass-background">
+            <div class="raindrops" id="raindrops"></div>
+        </div>
+
+        <!-- 主要内容区 -->
+        <div class="content">
+            <!-- Logo区域 -->
+            <div class="logo">
+                <h1>Rainy Mood<span class="registered">®</span></h1>
+                <p class="tagline">Rain makes everything better.</p>
+            </div>
+
+            <!-- 播放控制区 -->
+            <div class="player-controls">
+                <button id="playButton" class="play-button">
+                    <div class="play-icon"></div>
+                </button>
+                <!-- 音量滑块 -->
+                <div class="volume-slider">
+                    <input type="range" id="volumeSlider" min="0" max="100" value="80">
+                </div>
+            </div>
+
+            <!-- 计时器控制 -->
+            <div class="timer-control">
+                <button id="timerButton" class="timer-button">
+                    <span class="infinity-icon">∞</span>
+                </button>
+                <div id="timerPicker" class="timer-picker">
+                    <div class="timer-picker-content">
+                        <div class="timer-header">设置倒计时</div>
+                        <div class="timer-inputs">
+                            <div class="time-input">
+                                <input type="number" id="hoursInput" min="0" max="23" value="0">
+                                <label>小时</label>
+                            </div>
+                            <div class="time-input">
+                                <input type="number" id="minutesInput" min="0" max="59" value="30">
+                                <label>分钟</label>
+                            </div>
+                        </div>
+                        <div class="timer-actions">
+                            <button id="cancelTimer" class="timer-btn">取消</button>
+                            <button id="setTimer" class="timer-btn timer-btn-primary">设置</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 播放列表 -->
+            <div class="playlist-container">
+                <h3>选择音乐场景</h3>
+                <div class="playlist">
+                    <div class="playlist-item active" data-audio="rain-sound.mp3" data-background="rainy-background.svg">
+                        <img src="./img/rain-thumbnail.svg" alt="雨声">
+                        <span>雨声</span>
+                    </div>
+                    <div class="playlist-item" data-audio="forest-sound.mp3" data-background="forest-background.svg">
+                        <img src="./img/forest-thumbnail.svg" alt="森林">
+                        <span>森林</span>
+                    </div>
+                    <div class="playlist-item" data-audio="ocean-sound.mp3" data-background="ocean-background.svg">
+                        <img src="./img/ocean-thumbnail.svg" alt="海洋">
+                        <span>海洋</span>
+                    </div>
+                    <div class="playlist-item" data-audio="city-sound.mp3" data-background="city-background.svg">
+                        <img src="./img/city-thumbnail.svg" alt="城市">
+                        <span>城市</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>

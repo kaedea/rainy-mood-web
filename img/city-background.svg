@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <!-- 背景渐变 -->
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e272e" />
+      <stop offset="100%" stop-color="#2d3436" />
+    </linearGradient>
+    <radialGradient id="cityGlow" cx="50%" cy="50%" r="70%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="rgba(255,165,0,0.05)" />
+      <stop offset="100%" stop-color="rgba(255,165,0,0)" />
+    </radialGradient>
+  </defs>
+  
+  <!-- 天空背景 -->
+  <rect width="100%" height="100%" fill="url(#skyGradient)" />
+  
+  <!-- 城市灯光辉光 -->
+  <rect width="100%" height="100%" fill="url(#cityGlow)" />
+  
+  <!-- 远处的城市剪影 -->
+  <g opacity="0.9">
+    <!-- 建筑群1 -->
+    <rect x="50" y="400" width="100" height="680" fill="#0f1112" />
+    <rect x="80" y="350" width="40" height="50" fill="#0f1112" />
+    
+    <!-- 建筑群2 -->
+    <rect x="200" y="450" width="80" height="630" fill="#0f1112" />
+    <rect x="300" y="500" width="120" height="580" fill="#0f1112" />
+    <rect x="330" y="450" width="60" height="50" fill="#0f1112" />
+    
+    <!-- 建筑群3 -->
+    <rect x="450" y="350" width="70" height="730" fill="#0f1112" />
+    <rect x="550" y="400" width="90" height="680" fill="#0f1112" />
+    <rect x="650" y="450" width="60" height="630" fill="#0f1112" />
+    
+    <!-- 建筑群4 -->
+    <rect x="750" y="300" width="100" height="780" fill="#0f1112" />
+    <rect x="780" y="250" width="40" height="50" fill="#0f1112" />
+    <rect x="850" y="350" width="80" height="730" fill="#0f1112" />
+    
+    <!-- 建筑群5 -->
+    <rect x="950" y="400" width="70" height="680" fill="#0f1112" />
+    <rect x="1050" y="350" width="120" height="730" fill="#0f1112" />
+    <rect x="1080" y="300" width="60" height="50" fill="#0f1112" />
+    
+    <!-- 建筑群6 -->
+    <rect x="1200" y="450" width="90" height="630" fill="#0f1112" />
+    <rect x="1300" y="400" width="60" height="680" fill="#0f1112" />
+    <rect x="1400" y="350" width="100" height="730" fill="#0f1112" />
+    
+    <!-- 建筑群7 -->
+    <rect x="1550" y="400" width="70" height="680" fill="#0f1112" />
+    <rect x="1650" y="450" width="120" height="630" fill="#0f1112" />
+    <rect x="1800" y="350" width="80" height="730" fill="#0f1112" />
+  </g>
+  
+  <!-- 城市灯光 -->
+  <g opacity="0.8">
+    <!-- 窗户灯光 -->
+    <rect x="70" y="450" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="120" y="500" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="70" y="550" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="120" y="600" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="70" y="650" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="120" y="700" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    
+    <rect x="220" y="500" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="250" y="550" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="220" y="600" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="250" y="650" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    
+    <rect x="320" y="550" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="350" y="600" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="380" y="650" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="320" y="700" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="350" y="750" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="380" y="800" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    
+    <rect x="470" y="400" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="470" y="450" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="470" y="550" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="470" y="650" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="470" y="750" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    
+    <rect x="570" y="450" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="570" y="550" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="570" y="650" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="570" y="750" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="570" y="850" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    
+    <rect x="670" y="500" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="670" y="600" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="670" y="700" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="670" y="800" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    
+    <rect x="770" y="350" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="770" y="450" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="770" y="550" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="770" y="650" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="770" y="750" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="770" y="850" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    
+    <rect x="870" y="400" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="870" y="500" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="870" y="600" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="870" y="700" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="870" y="800" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    
+    <!-- 更多窗户灯光 -->
+    <rect x="970" y="450" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="970" y="550" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="970" y="650" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="970" y="750" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    
+    <rect x="1070" y="400" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1070" y="500" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1070" y="600" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1070" y="700" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1070" y="800" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1120" y="450" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1120" y="550" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1120" y="650" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1120" y="750" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    
+    <rect x="1220" y="500" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1220" y="600" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1220" y="700" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1220" y="800" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1270" y="550" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1270" y="650" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1270" y="750" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    
+    <rect x="1320" y="450" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1320" y="550" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1320" y="650" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1320" y="750" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    
+    <rect x="1420" y="400" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1420" y="500" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1420" y="600" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1420" y="700" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1420" y="800" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1470" y="450" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1470" y="550" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1470" y="650" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1470" y="750" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    
+    <rect x="1570" y="450" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1570" y="550" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1570" y="650" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1570" y="750" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    
+    <rect x="1670" y="500" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1670" y="600" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1670" y="700" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1670" y="800" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1720" y="550" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1720" y="650" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1720" y="750" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    
+    <rect x="1820" y="400" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1820" y="500" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1820" y="600" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1820" y="700" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+    <rect x="1820" y="800" width="10" height="15" fill="rgba(255, 255, 0, 0.5)" />
+  </g>
+  
+  <!-- 雨滴效果 -->
+  <g opacity="0.3">
+    <line x1="100" y1="0" x2="50" y2="100" stroke="rgba(200,220,240,0.4)" stroke-width="1" />
+    <line x1="300" y1="0" x2="250" y2="100" stroke="rgba(200,220,240,0.4)" stroke-width="1" />
+    <line x1="500" y1="0" x2="450" y2="100" stroke="rgba(200,220,240,0.4)" stroke-width="1" />
+    <line x1="700" y1="0" x2="650" y2="100" stroke="rgba(200,220,240,0.4)" stroke-width="1" />
+    <line x1="900" y1="0" x2="850" y2="100" stroke="rgba(200,220,240,0.4)" stroke-width="1" />
+    <line x1="1100" y1="0" x2="1050" y2="100" stroke="rgba(200,220,240,0.4)" stroke-width="1" />
+    <line x1="1300" y1="0" x2="1250" y2="100" stroke="rgba(200,220,240,0.4)" stroke-width="1" />
+    <line x1="1500" y1="0" x2="1450" y2="100" stroke="rgba(200,220,240,0.4)" stroke-width="1" />
+    <line x1="1700" y1="0" x2="1650" y2="100" stroke="rgba(200,220,240,0.4)" stroke-width="1" />
+    <line x1="1900" y1="0" x2="1850" y2="100" stroke="rgba(200,220,240,0.4)" stroke-width="1" />
+  </g>
+</svg>

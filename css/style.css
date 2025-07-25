@@ -1,0 +1,516 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    color: white;
+}
+
+/* 主容器 */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* 毛玻璃背景 */
+.glass-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/rainy-background.svg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.glass-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: -1;
+}
+
+/* 雨滴效果 */
+.raindrops {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.raindrop {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: scale(1, 1.5);
+    opacity: 0;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(1, 1.5);
+    }
+    10% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100vh) scale(1, 1.5);
+    }
+}
+
+/* 内容区域 */
+.content {
+    text-align: center;
+    z-index: 1;
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Logo样式 */
+.logo {
+    margin-bottom: 40px;
+}
+
+.logo h1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.registered {
+    font-size: 1rem;
+    vertical-align: super;
+}
+
+.tagline {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+/* 播放控制区 */
+.player-controls {
+    margin: 30px 0;
+}
+
+.play-button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    transition: all 0.3s ease;
+}
+
+.play-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.play-icon {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 0 15px 25px;
+    border-color: transparent transparent transparent rgba(255, 255, 255, 0.9);
+    margin-left: 5px;
+}
+
+.play-button.playing .play-icon {
+    width: 8px;
+    height: 30px;
+    border: none;
+    border-left: 8px solid rgba(255, 255, 255, 0.9);
+    border-right: 8px solid rgba(255, 255, 255, 0.9);
+    margin-left: 0;
+}
+
+/* 音量滑块 */
+.volume-slider {
+    width: 200px;
+    margin: 0 auto;
+}
+
+input[type="range"] {
+    width: 100%;
+    height: 4px;
+    -webkit-appearance: none;
+    background: rgba(255, 255, 255, 0.3);
+    outline: none;
+    border-radius: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+}
+
+/* 计时器控制 */
+.timer-control {
+    margin-top: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.timer-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.timer-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.infinity-icon {
+    font-size: 1.5rem;
+    color: white;
+    display: inline-block;
+}
+
+.countdown-text {
+    font-size: 1rem;
+    color: white;
+}
+
+.timer-picker {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    display: none;
+}
+
+.timer-picker.show {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.timer-picker-content {
+    width: 250px;
+}
+
+.timer-header {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.timer-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.time-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+}
+
+.time-input input {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.time-input label {
+    margin-top: 5px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.timer-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.timer-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.timer-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.timer-btn-primary {
+    background-color: rgba(78, 156, 255, 0.7);
+}
+
+.timer-btn-primary:hover {
+    background-color: rgba(78, 156, 255, 0.9);
+}
+
+/* 播放列表 */
+.playlist-container {
+    margin-top: 30px;
+}
+
+.playlist-container h3 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.playlist {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 5px 0;
+}
+
+.playlist-item {
+    width: 80px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.playlist-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.playlist-item span {
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.playlist-item:hover {
+    opacity: 0.9;
+}
+
+.playlist-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.playlist-item.active {
+    border: 2px solid #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.playlist-item.active {
+    opacity: 1;
+}
+
+.playlist-item.active img {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8), 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+.platform-links a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.platform-links a:hover {
+    opacity: 0.7;
+}
+
+.spotify::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url('../img/spotify-icon.svg') no-repeat center center;
+    background-size: contain;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.apple-music::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url('../img/apple-music-icon.svg') no-repeat center center;
+    background-size: contain;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .logo h1 {
+        font-size: 2.5rem;
+    }
+    
+    .play-button {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .play-icon {
+        border-width: 12px 0 12px 20px;
+    }
+    
+    .volume-slider {
+        width: 150px;
+    }
+    
+    .playlist-item {
+        width: 70px;
+    }
+    
+    .playlist-container h3 {
+        font-size: 1rem;
+    }
+    
+    .timer-picker-content {
+        width: 220px;
+    }
+    
+    .infinity-icon {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 2rem;
+    }
+    
+    .tagline {
+        font-size: 0.9rem;
+    }
+    
+    .play-button {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .play-icon {
+        border-width: 10px 0 10px 16px;
+    }
+    
+    .volume-slider {
+        width: 120px;
+    }
+    
+    .playlist {
+        gap: 10px;
+    }
+    
+    .playlist-item {
+        width: 60px;
+    }
+    
+    .playlist-item span {
+        font-size: 0.7rem;
+    }
+    
+    .timer-button {
+        padding: 6px 12px;
+    }
+    
+    .infinity-icon {
+        font-size: 1.2rem;
+    }
+    
+    .countdown-text {
+        font-size: 0.9rem;
+    }
+    
+    .timer-picker-content {
+        width: 200px;
+    }
+    
+    .timer-header {
+        font-size: 0.9rem;
+    }
+    
+    .time-input input {
+        font-size: 1rem;
+        padding: 6px;
+    }
+    
+    .timer-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
