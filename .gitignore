@@ -6,12 +6,21 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+desktop.ini
 
 # 编辑器和IDE文件
 .idea/
 .vscode/
 *.sublime-project
 *.sublime-workspace
+*.code-workspace
+.history/
+
+# Trae IDE 特定文件
+.trae/
+.trae-cache/
+.trae-history/
+.trae-settings.json
 
 # 依赖目录
 node_modules/
@@ -21,6 +30,11 @@ bower_components/
 dist/
 build/
 out/
+public/dist/
+.next/
+.nuxt/
+.output/
+.vite/
 
 # 日志文件
 logs
@@ -35,11 +49,18 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+.env*.local
+*.env
+!example.env
 
 # 临时文件
 *.tmp
 *.swp
 *.swo
+*~
+.cache/
+tmp/
+temp/
 
 # Vercel部署文件
 .vercel/*
@@ -50,6 +71,21 @@ yarn-error.log*
 *.wav
 *.ogg
 *.flac
+*.aac
+*.m4a
 
 # 但保留音频说明文件
 !audio/*.md
+
+# 本地开发配置
+.localdev/
+.devcontainer/
+
+# 测试覆盖率报告
+coverage/
+.nyc_output/
+
+# 依赖锁定文件（根据项目需要可以取消注释）
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
