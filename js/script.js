@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const playButton = document.getElementById('playButton');
     const playIcon = playButton.querySelector('.play-icon');
     const volumeSlider = document.getElementById('volumeSlider');
-    const raindropContainer = document.getElementById('raindrops');
+    const canvas = document.getElementById('raindrop-canvas');
     const glassBackground = document.querySelector('.glass-background');
     const playlistItems = document.querySelectorAll('.playlist-item');
     const timerButton = document.getElementById('timerButton');
@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const minutesInput = document.getElementById('minutesInput');
     const setTimerBtn = document.getElementById('setTimer');
     const cancelTimerBtn = document.getElementById('cancelTimer');
+    
+    // 初始化 raindrop-fx
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = rect.height;
     
     // 当前播放状态
     let isPlaying = false;
@@ -24,17 +29,40 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentAudio = './audio/rain-sound.mp3';
     let currentBackground = './img/rainy-background.svg';
     
+    // 创建 raindrop-fx 实例
+    let raindropFx;
+    const backgroundImage = new Image();
+    backgroundImage.src = currentBackground;
+    backgroundImage.onload = () => {
+        raindropFx = new RaindropFX({
+            canvas: canvas,
+            background: backgroundImage,
+        });
+        raindropFx.start();
+    };
+    
     // 创建音频对象
-    const audioPlayer = new Audio(currentAudio);
+    const audioPlayer = new Audio();
     audioPlayer.loop = true; // 设置循环播放
     
     // 设置初始音量
     audioPlayer.volume = volumeSlider.value / 100;
     
+    // 添加错误处理
+    audioPlayer.onerror = function() {
+        console.warn('音频文件加载失败: ' + currentAudio);
+        alert('音频文件未找到，请按照 audio/README.md 中的说明添加音频文件。');
+    };
+    
+    // 尝试加载音频
+    audioPlayer.src = currentAudio;
+    
     // 播放/暂停按钮点击事件
     playButton.addEventListener('click', function() {
         if (audioPlayer.paused) {
-            audioPlayer.play();
+            audioPlayer.play().catch(error => {
+                console.error('播放失败:', error);
+            });
             playButton.classList.add('playing');
             isPlaying = true;
         } else {
@@ -76,7 +104,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // 如果之前在播放，则继续播放新音频
                 if (wasPlaying) {
-                    audioPlayer.play();
+                    audioPlayer.play().catch(error => {
+                        console.error('播放失败:', error);
+                    });
                     playButton.classList.add('playing');
                 }
             }
@@ -87,9 +117,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 glassBackground.style.opacity = '0';
                 
                 setTimeout(() => {
-                    glassBackground.style.backgroundImage = `url('${newBackground}')`;
-                    glassBackground.style.opacity = '1';
-                    currentBackground = newBackground;
+                    const newBgImage = new Image();
+                    newBgImage.src = newBackground;
+                    newBgImage.onload = () => {
+                        raindropFx.setBackground(newBgImage);
+                        
+                        glassBackground.style.backgroundImage = `url('${newBackground}')`;
+                        glassBackground.style.opacity = '1';
+                        currentBackground = newBackground;
+                    };
                 }, 300);
             }
         });
@@ -204,95 +240,13 @@ document.addEventListener('DOMContentLoaded', function() {
         return true;
     }
     
-    // 创建雨滴效果
-    function createRaindrops() {
-        // 清除现有雨滴
-        raindropContainer.innerHTML = '';
-        
-        // 根据屏幕大小确定雨滴数量
-        const width = window.innerWidth;
-        const height = window.innerHeight;
-        const raindropsCount = Math.floor((width * height) / 10000); // 根据屏幕面积计算雨滴数量
-        
-        // 创建雨滴元素
-        for (let i = 0; i < raindropsCount; i++) {
-            createRaindrop();
+    // 窗口大小变化时调整 canvas 大小
+    window.addEventListener('resize', () => {
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+        if (raindropFx) {
+            raindropFx.resize(rect.width, rect.height);
         }
-        
-        // 定时创建新雨滴
-        setInterval(createRaindrop, 300);
-    }
-    
-    function createRaindrop() {
-        const raindrop = document.createElement('div');
-        raindrop.classList.add('raindrop');
-        
-        // 随机设置雨滴的位置、大小和动画时间
-        const size = Math.random() * 5 + 2; // 2-7px
-        const posX = Math.random() * 100; // 0-100%
-        const delay = Math.random() * 2; // 0-2s
-        const duration = Math.random() * 5 + 3; // 3-8s
-        
-        raindrop.style.width = `${size}px`;
-        raindrop.style.height = `${size}px`;
-        raindrop.style.left = `${posX}%`;
-        raindrop.style.top = '-10px';
-        raindrop.style.animationDelay = `${delay}s`;
-        raindrop.style.animationDuration = `${duration}s`;
-        
-        raindropContainer.appendChild(raindrop);
-        
-        // 动画结束后移除雨滴
-        setTimeout(() => {
-            raindrop.remove();
-        }, (delay + duration) * 1000);
-    }
-    
-    // 创建雨滴轨迹效果
-    function createRainStreaks() {
-        const streaksCount = 15; // 轨迹数量
-        
-        for (let i = 0; i < streaksCount; i++) {
-            setTimeout(() => {
-                createRainStreak();
-            }, i * 200); // 错开创建时间
-        }
-        
-        // 定时创建新轨迹
-        setInterval(createRainStreak, 5000);
-    }
-    
-    function createRainStreak() {
-        const streak = document.createElement('div');
-        streak.classList.add('raindrop');
-        
-        // 设置轨迹样式
-        const width = Math.random() * 2 + 1; // 1-3px
-        const height = Math.random() * 100 + 100; // 100-200px
-        const posX = Math.random() * 100; // 0-100%
-        const posY = Math.random() * 50; // 0-50%
-        const duration = Math.random() * 3 + 2; // 2-5s
-        
-        streak.style.width = `${width}px`;
-        streak.style.height = `${height}px`;
-        streak.style.left = `${posX}%`;
-        streak.style.top = `${posY}%`;
-        streak.style.opacity = '0.7';
-        streak.style.borderRadius = '0';
-        streak.style.animationDuration = `${duration}s`;
-        
-        raindropContainer.appendChild(streak);
-        
-        // 动画结束后移除轨迹
-        setTimeout(() => {
-            streak.remove();
-        }, duration * 1000);
-    }
-    
-    // 窗口大小变化时重新创建雨滴
-    window.addEventListener('resize', createRaindrops);
-    
-    // 初始化
-    createRaindrops();
-    createRainStreaks();
+    });
 });

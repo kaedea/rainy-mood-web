@@ -33,7 +33,6 @@ body {
     background-image: url('../img/rainy-background.svg');
     background-size: cover;
     background-position: center;
-    filter: blur(5px);
     z-index: -1;
     transition: opacity 0.3s ease;
 }
@@ -46,46 +45,19 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index: -1;
+    z-index: -2;
 }
 
 /* 雨滴效果 */
-.raindrops {
+#raindrop-canvas {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 0;
+    display: block;
     pointer-events: none;
-}
-
-.raindrop {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    transform: scale(1, 1.5);
-    opacity: 0;
-    animation: fall linear forwards;
-}
-
-@keyframes fall {
-    0% {
-        opacity: 0;
-        transform: translateY(0) scale(1, 1.5);
-    }
-    10% {
-        opacity: 1;
-    }
-    95% {
-        opacity: 0.8;
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(100vh) scale(1, 1.5);
-    }
 }
 
 /* 内容区域 */
