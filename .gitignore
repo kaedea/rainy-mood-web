@@ -66,16 +66,7 @@ temp/
 .vercel/*
 !.vercel/project.json
 
-# 音频文件（由于大小和二进制性质）
-*.mp3
-*.wav
-*.ogg
-*.flac
-*.aac
-*.m4a
 
-# 但保留音频说明文件
-!audio/*.md
 
 # 本地开发配置
 .localdev/
