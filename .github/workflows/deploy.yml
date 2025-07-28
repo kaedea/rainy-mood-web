@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          lfs: true
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
