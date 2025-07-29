@@ -12,6 +12,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const minutesInput = document.getElementById('minutesInput');
     const setTimerBtn = document.getElementById('setTimer');
     const cancelTimerBtn = document.getElementById('cancelTimer');
+const volumeDisplay = document.getElementById('volumeDisplay');
+const countdownDisplay = document.getElementById('countdownDisplay');
+    
+    // 初始化音量显示
+volumeDisplay.textContent = volumeSlider.value;
+// 初始化倒计时显示
+countdownDisplay.classList.add('hidden');
     
     // 初始化 raindrop-fx
     const rect = canvas.getBoundingClientRect();
@@ -75,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 音量控制
     volumeSlider.addEventListener('input', function() {
         audioPlayer.volume = this.value / 100;
+        volumeDisplay.textContent = this.value;
     });
     
     // 播放列表项点击事件
@@ -138,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
             clearInterval(countdownInterval);
             countdownInterval = null;
             endTime = null;
-            timerButton.innerHTML = '<span class="infinity-icon">∞</span>';
+            countdownDisplay.classList.add('hidden');
             return;
         }
         
@@ -187,6 +195,8 @@ document.addEventListener('DOMContentLoaded', function() {
             clearInterval(countdownInterval);
         }
         
+        // 显示 countdownDisplay
+        countdownDisplay.classList.remove('hidden');
         // 更新倒计时显示
         updateCountdownDisplay();
         
@@ -204,8 +214,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 playButton.classList.remove('playing');
                 isPlaying = false;
                 
-                // 恢复无限循环图标
-                timerButton.innerHTML = '<span class="infinity-icon">∞</span>';
+                // 隐藏显示
+                countdownDisplay.classList.add('hidden');
             }
         }, 1000);
     }
@@ -219,6 +229,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 检查倒计时是否结束
         if (timeLeft <= 0) {
+            countdownDisplay.classList.add('hidden');
             return false;
         }
         
@@ -234,8 +245,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         displayText += `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         
-        // 更新按钮文本
-        timerButton.innerHTML = `<span class="countdown-text">${displayText}</span>`;
+        // 更新倒计时显示
+countdownDisplay.textContent = displayText;
         
         return true;
     }

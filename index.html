@@ -29,15 +29,16 @@
                 </button>
                 <!-- 音量滑块 -->
                 <div class="volume-slider">
+                    <span id="volumeDisplay" class="volume-display">80%</span>
                     <input type="range" id="volumeSlider" min="0" max="100" value="80">
+                    <button id="timerButton" class="timer-button">
+                        <img src="./img/timer.svg" alt="Timer" class="timer-icon">
+                    </button>
                 </div>
             </div>
 
             <!-- 计时器控制 -->
             <div class="timer-control">
-                <button id="timerButton" class="timer-button">
-                    <span class="infinity-icon">∞</span>
-                </button>
                 <div id="timerPicker" class="timer-picker">
                     <div class="timer-picker-content">
                         <div class="timer-header">设置倒计时</div>
@@ -61,7 +62,7 @@
             
             <!-- 播放列表 -->
             <div class="playlist-container">
-                <h3>选择音乐场景</h3>
+                <div id="countdownDisplay" class="countdown-display">∞</div>
                 <div class="playlist">
                     <div class="playlist-item active" data-audio="rain-sound.mp3" data-background="rainy-background.svg">
                         <img src="./img/rain-thumbnail.svg" alt="雨声">

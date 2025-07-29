@@ -136,8 +136,26 @@ body {
 
 /* 音量滑块 */
 .volume-slider {
-    width: 200px;
+    width: 300px;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.volume-display {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 8px 12px;
+    font-size: 1.2rem;
+    color: white;
+    width: 60px;
+    text-align: center;
+}
+
+input[type="range"] {
+    flex: 1;
+    margin: 0 10px;
 }
 
 input[type="range"] {
@@ -170,25 +188,36 @@ input[type="range"]::-webkit-slider-thumb {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 8px 15px;
+    padding: 8px 12px;
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
+    width: 60px;
+    text-align: center;
 }
 
 .timer-button:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-.infinity-icon {
-    font-size: 1.5rem;
-    color: white;
+.timer-icon {
+    width: 18px;
+    height: 18px;
     display: inline-block;
+    vertical-align: middle;
+}
+
+.countdown-display.hidden {
+    visibility: hidden;
 }
 
 .countdown-text {
     font-size: 1rem;
     color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
 }
 
 .timer-picker {
@@ -289,11 +318,13 @@ input[type="range"]::-webkit-slider-thumb {
     margin-top: 30px;
 }
 
-.playlist-container h3 {
+.countdown-display {
     font-size: 1.1rem;
     font-weight: 400;
     margin-bottom: 15px;
     opacity: 0.9;
+    color: white;
+    height: 24px; /* 保持高度稳定 */
 }
 
 .playlist {
@@ -303,7 +334,7 @@ input[type="range"]::-webkit-slider-thumb {
     flex-wrap: wrap;
     max-width: 100%;
     overflow-x: auto;
-    padding: 5px 0;
+    padding: 10px 0;
 }
 
 .playlist-item {
@@ -340,7 +371,8 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .playlist-item.active {
-    border: 2px solid #fff;
+    border: 1px solid #fff;
+    border-radius: 8px;
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
@@ -350,8 +382,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .playlist-item.active img {
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8), 0 5px 15px rgba(0, 0, 0, 0.3);
-    transform: translateY(-3px);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8), 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .platform-links a {
