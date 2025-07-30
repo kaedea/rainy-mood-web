@@ -214,7 +214,7 @@ body {
     }
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
     .volume-bar {
         width: 100%;
         padding: 0 10px;
@@ -237,7 +237,7 @@ body {
         width: 16px;
         height: 16px;
     }
-}
+} */
 
 /* 音量滑块 */
 .volume-slider {
@@ -281,7 +281,7 @@ input[type="range"] {
     }
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
     .volume-slider {
         width: 100%;
         padding: 0 10px;
@@ -304,7 +304,7 @@ input[type="range"] {
         width: 16px;
         height: 16px;
     }
-}
+} */
 
 .volume-display {
     flex: 0 0 60px;
@@ -641,7 +641,7 @@ input[type="range"]::-webkit-slider-thumb {
     }
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
     .logo h1 {
         font-size: 2rem;
     }
@@ -704,4 +704,4 @@ input[type="range"]::-webkit-slider-thumb {
         padding: 6px 12px;
         font-size: 0.8rem;
     }
-}
+} */
