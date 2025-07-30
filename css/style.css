@@ -99,8 +99,8 @@ body {
 }
 
 .play-button {
-    width: 80px;
-    height: 80px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.2);
     border: 2px solid rgba(255, 255, 255, 0.5);
@@ -120,37 +120,202 @@ body {
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 15px 0 15px 25px;
+    border-width: 30px 0 30px 50px;
     border-color: transparent transparent transparent rgba(255, 255, 255, 0.9);
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .play-button.playing .play-icon {
-    width: 8px;
-    height: 30px;
-    border: none;
-    border-left: 8px solid rgba(255, 255, 255, 0.9);
-    border-right: 8px solid rgba(255, 255, 255, 0.9);
+    border: 0;
+    width: 60px;
+    height: 60px;
+    position: relative;
     margin-left: 0;
+}
+
+.play-button.playing .play-icon::before,
+.play-button.playing .play-icon::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.9);
+    top: 0;
+}
+
+.play-button.playing .play-icon::before {
+    left: 5px;
+}
+
+.play-button.playing .play-icon::after {
+    right: 5px;
+}
+
+/* 音量条栏 */
+.volume-bar {
+    width: 300px;
+    max-width: 100%;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.volume-bar .volume-display,
+.volume-bar .timer-button {
+    flex: 0 0 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.volume-bar .timer-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.volume-bar .timer-icon {
+    height: 16px;
+    width: 16px;
+    vertical-align: middle;
+    opacity: 0.9;
+}
+
+.volume-bar input[type="range"] {
+    flex: 1 1 auto;
+    min-width: 200px;
+    margin: 0 10px;
+}
+
+@media (max-width: 600px) {
+    .volume-bar {
+        width: 200px;
+    }
+    .volume-bar .volume-display,
+    .volume-bar .timer-button {
+        flex: 0 0 50px;
+        font-size: 1.1rem;
+        padding: 7px 10px;
+    }
+    .volume-bar input[type="range"] {
+        min-width: 150px;
+        margin: 0 8px;
+    }
+    .volume-bar .timer-icon {
+        width: 17px;
+        height: 17px;
+    }
+}
+
+@media (max-width: 480px) {
+    .volume-bar {
+        width: 100%;
+        padding: 0 10px;
+        justify-content: center;
+    }
+    .volume-bar .volume-display {
+        width: 50px;
+        font-size: 1rem;
+        padding: 6px 8px;
+    }
+    .volume-bar .timer-button {
+        width: 50px;
+        padding: 6px 8px;
+    }
+    .volume-bar input[type="range"] {
+        min-width: 120px;
+        margin: 0 5px;
+    }
+    .volume-bar .timer-icon {
+        width: 16px;
+        height: 16px;
+    }
 }
 
 /* 音量滑块 */
 .volume-slider {
     width: 300px;
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.volume-display,
+.timer-button {
+    flex: 0 0 60px;
+}
+
+input[type="range"] {
+    flex: 1 1 auto;
+    min-width: 200px;
+    margin: 0 10px;
+}
+
+@media (max-width: 600px) {
+    .volume-slider {
+        width: 200px;
+    }
+    .volume-display,
+    .timer-button {
+        flex: 0 0 50px;
+        font-size: 1.1rem;
+        padding: 7px 10px;
+    }
+    input[type="range"] {
+        min-width: 150px;
+        margin: 0 8px;
+    }
+    .timer-icon {
+        width: 17px;
+        height: 17px;
+    }
+}
+
+@media (max-width: 480px) {
+    .volume-slider {
+        width: 100%;
+        padding: 0 10px;
+        justify-content: center;
+    }
+    .volume-display {
+        width: 50px;
+        font-size: 1rem;
+        padding: 6px 8px;
+    }
+    .timer-button {
+        width: 50px;
+        padding: 6px 8px;
+    }
+    input[type="range"] {
+        min-width: 120px;
+        margin: 0 5px;
+    }
+    .timer-icon {
+        width: 16px;
+        height: 16px;
+    }
 }
 
 .volume-display {
+    flex: 0 0 60px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    padding: 8px 12px;
     font-size: 1.2rem;
     color: white;
-    width: 60px;
-    text-align: center;
 }
 
 input[type="range"] {
@@ -194,6 +359,10 @@ input[type="range"]::-webkit-slider-thumb {
     transition: all 0.3s ease;
     width: 60px;
     text-align: center;
+    margin: 0 auto 20px;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .timer-button:hover {
@@ -321,7 +490,7 @@ input[type="range"]::-webkit-slider-thumb {
 .countdown-display {
     font-size: 1.1rem;
     font-weight: 400;
-    margin-bottom: 15px;
+    margin-bottom: -20px;
     opacity: 0.9;
     color: white;
     height: 24px; /* 保持高度稳定 */
@@ -424,12 +593,31 @@ input[type="range"]::-webkit-slider-thumb {
     }
     
     .play-button {
-        width: 60px;
-        height: 60px;
+        width: 120px;
+        height: 120px;
     }
     
     .play-icon {
-        border-width: 12px 0 12px 20px;
+        border-width: 24px 0 24px 40px;
+    }
+    
+    .play-button.playing .play-icon {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .play-button.playing .play-icon:before,
+    .play-button.playing .play-icon:after {
+        width: 12px;
+        height: 48px;
+    }
+    
+    .play-button.playing .play-icon:before {
+        left: 12px;
+    }
+    
+    .play-button.playing .play-icon:after {
+        right: 12px;
     }
     
     .volume-slider {

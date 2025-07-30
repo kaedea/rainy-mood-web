@@ -27,14 +27,6 @@
                 <button id="playButton" class="play-button">
                     <div class="play-icon"></div>
                 </button>
-                <!-- 音量滑块 -->
-                <div class="volume-slider">
-                    <span id="volumeDisplay" class="volume-display">80%</span>
-                    <input type="range" id="volumeSlider" min="0" max="100" value="80">
-                    <button id="timerButton" class="timer-button">
-                        <img src="./img/timer.svg" alt="Timer" class="timer-icon">
-                    </button>
-                </div>
             </div>
 
             <!-- 计时器控制 -->
@@ -63,6 +55,14 @@
             <!-- 播放列表 -->
             <div class="playlist-container">
                 <div id="countdownDisplay" class="countdown-display">∞</div>
+                <!-- 音量条栏 -->
+                <div class="volume-bar">
+                    <span id="volumeDisplay" class="volume-display">80%</span>
+                    <input type="range" id="volumeSlider" min="0" max="100" value="80">
+                    <button id="timerButton" class="timer-button">
+                        <img src="./img/timer.svg" alt="Timer" class="timer-icon">
+                    </button>
+                </div>
                 <div class="playlist">
                     <div class="playlist-item active" data-audio="rain-sound.mp3" data-background="rainy-background.svg">
                         <img src="./img/rain-thumbnail.svg" alt="雨声">
