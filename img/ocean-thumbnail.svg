@@ -27,6 +27,5 @@
   <!-- 月光反射 -->
   <path d="M140,60 C145,65 150,60 155,65 C160,60 165,65 170,60 L155,120 L140,120 Z" fill="rgba(255,255,255,0.1)" />
   
-  <!-- 标题 -->
-  <text x="100" y="110" font-family="Arial" font-size="14" fill="white" text-anchor="middle">海洋</text>
+
 </svg>

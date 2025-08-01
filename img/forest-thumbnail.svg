@@ -22,6 +22,5 @@
     <circle cx="170" cy="55" r="1.5" />
   </g>
   
-  <!-- 标题 -->
-  <text x="100" y="110" font-family="Arial" font-size="14" fill="white" text-anchor="middle">森林</text>
+
 </svg>

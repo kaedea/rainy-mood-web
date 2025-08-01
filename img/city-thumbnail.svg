@@ -80,6 +80,5 @@
     <line x1="180" y1="0" x2="175" y2="20" />
   </g>
   
-  <!-- 标题 -->
-  <text x="100" y="110" font-family="Arial" font-size="14" fill="white" text-anchor="middle">城市</text>
+
 </svg>

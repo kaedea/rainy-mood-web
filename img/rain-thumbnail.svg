@@ -21,6 +21,5 @@
     <line x1="170" y1="70" x2="160" y2="100" />
   </g>
   
-  <!-- 标题 -->
-  <text x="100" y="110" font-family="Arial" font-size="14" fill="white" text-anchor="middle">雨声</text>
+
 </svg>
