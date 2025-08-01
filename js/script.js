@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // 初始化国际化
+    if (window.i18n) {
+        window.i18n.initI18n();
+    }
     // 获取DOM元素
     const playButton = document.getElementById('playButton');
     const playIcon = playButton.querySelector('.play-icon');
