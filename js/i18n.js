@@ -84,32 +84,73 @@ function initI18n() {
     return;
   }
   
-  // 添加语言切换器
-  const langSelector = document.createElement('div');
-  langSelector.className = 'language-selector';
-  langSelector.innerHTML = `
-    <select id="language-select">
-      <option value="zh-CN">中文</option>
-      <option value="en-US">English</option>
-      <option value="ja-JP">日本語</option>
-      <option value="ko-KR">한국어</option>
-    </select>
+  // 获取容器和utility-bar
+  const container = document.querySelector('.container');
+  let utilityBar = document.querySelector('.utility-bar');
+  if (!utilityBar) {
+    utilityBar = document.createElement('div');
+    utilityBar.className = 'utility-bar';
+    if (container) {
+      container.appendChild(utilityBar);
+    }
+  }
+  
+  // 添加语言切换按钮到utility-bar
+  const langBtn = document.createElement('button');
+  langBtn.className = 'utility-btn';
+  langBtn.id = 'language-btn';
+  langBtn.title = 'Language';
+  langBtn.innerHTML = '<span class="utility-icon">🌐</span>';
+  
+  // 将语言按钮插入到utility-bar的第一个位置
+  utilityBar.insertBefore(langBtn, utilityBar.firstChild);
+  
+  // 创建语言选择下拉菜单
+  const langDropdown = document.createElement('div');
+  langDropdown.className = 'utility-dropdown';
+  langDropdown.id = 'language-dropdown';
+  langDropdown.innerHTML = `
+    <button class="utility-option" data-lang="zh-CN">中文</button>
+    <button class="utility-option" data-lang="en-US">English</button>
+    <button class="utility-option" data-lang="ja-JP">日本語</button>
+    <button class="utility-option" data-lang="ko-KR">한국어</button>
   `;
   
-  // 将语言选择器添加到页面
-  const container = document.querySelector('.container');
+  // 添加下拉菜单到容器
   if (container) {
-    container.appendChild(langSelector);
+    container.appendChild(langDropdown);
   }
   
-  // 设置当前选中语言
-  const select = document.getElementById('language-select');
-  if (select) {
-    select.value = getUserLanguage();
-    select.addEventListener('change', (e) => {
-      setLanguage(e.target.value);
+  // 设置语言按钮点击事件
+  const languageBtn = document.getElementById('language-btn');
+  if (languageBtn) {
+    languageBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const dropdown = document.getElementById('language-dropdown');
+      dropdown.classList.toggle('show');
+      
+      // 关闭其他下拉菜单
+      const otherDropdowns = document.querySelectorAll('.utility-dropdown:not(#language-dropdown)');
+      otherDropdowns.forEach(d => d.classList.remove('show'));
     });
   }
+  
+  // 设置语言选项点击事件
+  const langOptions = document.querySelectorAll('#language-dropdown .utility-option');
+  langOptions.forEach(option => {
+    option.addEventListener('click', (e) => {
+      const lang = e.target.dataset.lang;
+      setLanguage(lang);
+      document.getElementById('language-dropdown').classList.remove('show');
+    });
+  });
+  
+  // 点击其他地方关闭下拉菜单
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.language-selector') && !e.target.closest('#language-dropdown')) {
+      document.getElementById('language-dropdown').classList.remove('show');
+    }
+  });
 }
 
 // 导出到全局作用域

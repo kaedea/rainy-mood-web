@@ -298,6 +298,101 @@ countdownDisplay.textContent = displayText;
         return true;
     }
     
+    // 轻量级分享和捐款功能
+    const shareBtn = document.getElementById('shareBtn');
+    const donateBtn = document.getElementById('donateBtn');
+    const shareDropdown = document.getElementById('shareDropdown');
+    const donateDropdown = document.getElementById('donateDropdown');
+    
+    // 分享按钮点击事件
+    shareBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        shareDropdown.classList.toggle('show');
+        donateDropdown.classList.remove('show');
+    });
+    
+    // 捐款按钮点击事件
+    donateBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        donateDropdown.classList.toggle('show');
+        shareDropdown.classList.remove('show');
+    });
+    
+    // 分享选项点击事件
+    document.querySelectorAll('.utility-option').forEach(option => {
+        if (option.closest('#shareDropdown')) {
+            option.addEventListener('click', function() {
+                const action = this.getAttribute('data-share');
+                
+                if (action === 'copy') {
+                    navigator.clipboard.writeText(window.location.href).then(() => {
+                        // 使用更轻量的提示方式
+                        this.textContent = '✅ 已复制';
+                        setTimeout(() => {
+                            this.textContent = '🔗 复制链接';
+                        }, 1500);
+                    }).catch(() => {
+                        const tempInput = document.createElement('input');
+                        tempInput.value = window.location.href;
+                        document.body.appendChild(tempInput);
+                        tempInput.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(tempInput);
+                        this.textContent = '✅ 已复制';
+                        setTimeout(() => {
+                            this.textContent = '🔗 复制链接';
+                        }, 1500);
+                    });
+                } else if (action === 'favorite') {
+                    this.textContent = '✅ 已收藏';
+                    setTimeout(() => {
+                        this.textContent = '⭐ 收藏';
+                    }, 1500);
+                }
+                
+                setTimeout(() => {
+                    shareDropdown.classList.remove('show');
+                }, 1500);
+            });
+        }
+    });
+    
+    // 捐款选项点击事件
+    document.querySelectorAll('.utility-option').forEach(option => {
+        if (option.closest('#donateDropdown')) {
+            option.addEventListener('click', function() {
+                const method = this.getAttribute('data-donate');
+                
+                const donateUrls = {
+                    paypal: 'https://www.paypal.com/donate?business=your-paypal-email@example.com',
+                    wechat: 'weixin://scanpay',
+                    alipay: 'alipay://platformapi/startapp?appId=20000067'
+                };
+                
+                const url = donateUrls[method];
+                if (url) {
+                    window.open(url, '_blank');
+                } else {
+                    this.textContent = '⏳ 即将上线';
+                    setTimeout(() => {
+                        this.textContent = method === 'paypal' ? '💳 PayPal' : 
+                                         method === 'wechat' ? '📱 微信支付' : '💰 支付宝';
+                    }, 1500);
+                }
+                
+                setTimeout(() => {
+                    donateDropdown.classList.remove('show');
+                }, 1500);
+            });
+        }
+    });
+    
+    // 点击页面其他区域关闭下拉菜单
+    document.addEventListener('click', function() {
+        shareDropdown.classList.remove('show');
+        donateDropdown.classList.remove('show');
+    });
+    
     // 窗口大小变化时调整 canvas 大小
     window.addEventListener('resize', () => {
         const rect = canvas.getBoundingClientRect();

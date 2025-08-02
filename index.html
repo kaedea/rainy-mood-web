@@ -17,6 +17,16 @@
         <!-- 背景和雨滴效果 -->
         <div class="glass-background"></div>
         <canvas id="raindrop-canvas"></canvas>
+        
+        <!-- 分享和捐款按钮 - 与language-selector对齐 -->
+        <div class="utility-bar">
+            <button class="utility-btn" id="shareBtn" title="分享">
+                <span class="utility-icon">🔗</span>
+            </button>
+            <button class="utility-btn" id="donateBtn" title="支持">
+                <span class="utility-icon">🎉</span>
+            </button>
+        </div>
 
         <!-- 主要内容区 -->
         <div class="content">
@@ -87,6 +97,31 @@
                     </div>
                 </div>
             </div>
+            
+
+            
+            <!-- 简化下拉菜单 -->
+            <div class="utility-dropdown" id="shareDropdown">
+                <button class="utility-option" data-share="copy">🔗 复制链接</button>
+                <button class="utility-option" data-share="favorite">⭐ 收藏</button>
+            </div>
+            
+            <div class="utility-dropdown" id="donateDropdown">
+                <button class="utility-option" data-donate="paypal">💳 PayPal</button>
+                <button class="utility-option" data-donate="wechat">📱 微信支付</button>
+                <button class="utility-option" data-donate="alipay">💰 支付宝</button>
+            </div>
+        </div>
+        <!-- 简化下拉菜单 -->
+        <div class="utility-dropdown" id="shareDropdown">
+            <button class="utility-option" data-share="copy">🔗 复制链接</button>
+            <button class="utility-option" data-share="favorite">⭐ 收藏</button>
+        </div>
+        
+        <div class="utility-dropdown" id="donateDropdown">
+            <button class="utility-option" data-donate="paypal">💳 PayPal</button>
+            <button class="utility-option" data-donate="wechat">📱 微信支付</button>
+            <button class="utility-option" data-donate="alipay">💰 支付宝</button>
         </div>
     </div>
 
