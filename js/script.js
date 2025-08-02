@@ -1,3 +1,21 @@
+// Cookie 工具函数
+function setCookie(name, value, days = 30) {
+    const expires = new Date();
+    expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+    document.cookie = `${name}=${encodeURIComponent(value)};expires=${expires.toUTCString()};path=/`;
+}
+
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+    }
+    return null;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // 初始化国际化
     if (window.i18n) {
@@ -16,13 +34,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const minutesInput = document.getElementById('minutesInput');
     const setTimerBtn = document.getElementById('setTimer');
     const cancelTimerBtn = document.getElementById('cancelTimer');
-const volumeDisplay = document.getElementById('volumeDisplay');
-const countdownDisplay = document.getElementById('countdownDisplay');
+    const volumeDisplay = document.getElementById('volumeDisplay');
+    const countdownDisplay = document.getElementById('countdownDisplay');
+    
+    // 从cookie恢复设置
+    const savedVolume = getCookie('volume');
+    if (savedVolume) {
+        volumeSlider.value = savedVolume;
+    }
+    
+    const savedAudio = getCookie('selectedAudio');
+    const savedBackground = getCookie('selectedBackground');
     
     // 初始化音量显示
-volumeDisplay.textContent = volumeSlider.value;
-// 初始化倒计时显示
-countdownDisplay.classList.add('hidden');
+    volumeDisplay.textContent = volumeSlider.value;
+    // 初始化倒计时显示
+    countdownDisplay.classList.add('hidden');
     
     // 初始化 raindrop-fx
     const rect = canvas.getBoundingClientRect();
@@ -37,9 +64,9 @@ countdownDisplay.classList.add('hidden');
     let endTime = null;
     
     // 当前选中的音频和背景
-    let currentAudio = './audio/rain-sound.mp3';
-    let currentBackground = './img/rainy-background.svg';
-    
+    let currentAudio = savedAudio || './audio/rain-sound.mp3';
+    let currentBackground = savedBackground || './img/rainy-background.svg';
+
     // 创建 raindrop-fx 实例
     let raindropFx;
     const backgroundImage = new Image();
@@ -57,13 +84,24 @@ countdownDisplay.classList.add('hidden');
     audioPlayer.loop = true; // 设置循环播放
     
     // 设置初始音量
-    audioPlayer.volume = volumeSlider.value / 100;
+    audioPlayer.volume = (savedVolume || volumeSlider.value) / 100;
     
     // 添加错误处理
     audioPlayer.onerror = function() {
         console.warn('音频文件加载失败: ' + currentAudio);
         alert('音频文件未找到，请按照 audio/README.md 中的说明添加音频文件。');
     };
+    
+    // 恢复播放列表选中状态
+    if (savedAudio) {
+        playlistItems.forEach(item => {
+            if ('./audio/' + item.getAttribute('data-audio') === savedAudio) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    }
     
     // 尝试加载音频
     audioPlayer.src = currentAudio;
@@ -87,6 +125,7 @@ countdownDisplay.classList.add('hidden');
     volumeSlider.addEventListener('input', function() {
         audioPlayer.volume = this.value / 100;
         volumeDisplay.textContent = this.value;
+        setCookie('volume', this.value);
     });
     
     // 播放列表项点击事件
@@ -137,9 +176,13 @@ countdownDisplay.classList.add('hidden');
                         glassBackground.style.backgroundImage = `url('${newBackground}')`;
                         glassBackground.style.opacity = '1';
                         currentBackground = newBackground;
+                        setCookie('selectedBackground', newBackground);
                     };
                 }, 300);
             }
+            
+            // 保存音频选择到cookie
+            setCookie('selectedAudio', newAudio);
         });
     });
     
