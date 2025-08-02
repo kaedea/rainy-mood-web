@@ -67,7 +67,25 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentAudio = savedAudio || './audio/rain-sound.mp3';
     let currentBackground = savedBackground || './img/rainy-background.svg';
 
-    // 创建 raindrop-fx 实例
+    // 初始化设备相关的UI
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const favoriteBtn = document.getElementById('favoriteBtn');
+    const mobileShareBtn = document.getElementById('mobileShareBtn');
+    const copyLinkBtn = document.querySelector('[data-share="copy"]');
+    
+    if (isMobile) {
+        // 移动端：复制、分享
+        if (copyLinkBtn) copyLinkBtn.style.display = 'block';
+        if (favoriteBtn) favoriteBtn.style.display = 'none';
+        if (mobileShareBtn) mobileShareBtn.style.display = 'block';
+    } else {
+        // 桌面端：复制、收藏、分享
+        if (copyLinkBtn) copyLinkBtn.style.display = 'block';
+        if (favoriteBtn) favoriteBtn.style.display = 'block';
+        if (mobileShareBtn) mobileShareBtn.style.display = 'block';
+    }
+
+    // 初始化 raindrop-fx
     let raindropFx;
     const backgroundImage = new Image();
     backgroundImage.src = currentBackground;
@@ -344,10 +362,28 @@ countdownDisplay.textContent = displayText;
                         }, 1500);
                     });
                 } else if (action === 'favorite') {
-                    this.textContent = '✅ 已收藏';
-                    setTimeout(() => {
-                        this.textContent = '⭐ 收藏';
-                    }, 1500);
+                    // 桌面端显示收藏快捷键
+                    const isMac = /Mac|iPhone|iPad|iPod/.test(navigator.platform);
+                    const shortcut = isMac ? 'CMD + D' : 'Ctrl + D';
+                    alert(`您可以通过 ${shortcut} 快捷键收藏本页面`);
+                } else if (action === 'mobile-share') {
+                    // 移动端分享功能
+                    if (navigator.share) {
+                        navigator.share({
+                            title: document.title,
+                            url: window.location.href
+                        }).catch(err => {
+                            console.log('分享取消:', err);
+                        });
+                    } else {
+                        // 降级方案：复制链接
+                        navigator.clipboard.writeText(window.location.href).then(() => {
+                            this.textContent = '✅ 已复制链接';
+                            setTimeout(() => {
+                                this.textContent = '🔗 分享';
+                            }, 1500);
+                        });
+                    }
                 }
                 
                 setTimeout(() => {
