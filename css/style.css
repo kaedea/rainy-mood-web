@@ -125,15 +125,16 @@ body {
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 30px 0 30px 50px;
+    border-width: 25px 0 25px 40px;
     border-color: transparent transparent transparent rgba(255, 255, 255, 0.9);
-    margin-left: 10px;
+    margin-left: 8px;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
 }
 
 .play-button.playing .play-icon {
     border: 0;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     position: relative;
     margin-left: 0;
 }
@@ -142,18 +143,22 @@ body {
 .play-button.playing .play-icon::after {
     content: '';
     position: absolute;
-    width: 20px;
-    height: 60px;
+    width: 16px;
+    height: 50px;
     background-color: rgba(255, 255, 255, 0.9);
     top: 0;
+    border-radius: 8px;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
 }
 
 .play-button.playing .play-icon::before {
-    left: 5px;
+    left: 8px;
+    margin-left: -3px;
 }
 
 .play-button.playing .play-icon::after {
-    right: 5px;
+    right: 8px;
+    margin-right: -3px;
 }
 
 /* 音量条栏 */
@@ -646,26 +651,29 @@ input[type="range"]::-webkit-slider-thumb {
     }
     
     .play-icon {
-        border-width: 24px 0 24px 40px;
+        border-width: 20px 0 20px 32px;
+        filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
     }
     
     .play-button.playing .play-icon {
-        width: 48px;
-        height: 48px;
+        width: 40px;
+        height: 40px;
     }
     
     .play-button.playing .play-icon:before,
     .play-button.playing .play-icon:after {
         width: 12px;
-        height: 48px;
+        height: 40px;
+        border-radius: 6px;
+        filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
     }
     
     .play-button.playing .play-icon:before {
-        left: 12px;
+        left: 8px;
     }
     
     .play-button.playing .play-icon:after {
-        right: 12px;
+        right: 8px;
     }
     
     .volume-slider {
