@@ -346,7 +346,7 @@ countdownDisplay.textContent = displayText;
         // 2 秒后隐藏tooltip
         tooltipTimeout = setTimeout(() => {
             hideTooltips();
-        }, 2000);
+        }, 1500);
     }
     
     // 分享按钮点击事件
@@ -497,9 +497,12 @@ countdownDisplay.textContent = displayText;
         
         // 点击按钮时立即隐藏所有tooltips
         button.addEventListener('click', function() {
-            hideTooltips();
-            if (tooltipTimeout) {
-                clearTimeout(tooltipTimeout);
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            if (!isMobile) {
+                hideTooltips();
+                if (tooltipTimeout) {
+                    clearTimeout(tooltipTimeout);
+                }
             }
         });
     });
