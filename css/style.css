@@ -670,18 +670,49 @@ input[type="range"]::-webkit-slider-thumb {
     height: 40px;
     color: white;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.15s ease;
     backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1rem;
+    position: relative;
 }
 
 .utility-btn:hover {
     background: rgba(255, 255, 255, 0.2);
     border-color: rgba(255, 255, 255, 0.4);
     transform: scale(1.1);
+}
+
+/* 自定义tooltip样式 */
+.utility-btn::after {
+    content: attr(title);
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.1s ease, visibility 0.1s ease;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.utility-btn:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 防止tooltip被按钮遮挡 */
+.utility-btn[data-tooltip] {
+    overflow: visible;
 }
 
 .utility-dropdown {

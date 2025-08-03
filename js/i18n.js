@@ -79,31 +79,31 @@ function updateUIText() {
 function initI18n() {
   updateUIText();
   
-  // 检查是否已存在语言选择器
-  if (document.querySelector('.language-selector')) {
-    return;
-  }
-  
-  // 获取容器和utility-bar
-  const container = document.querySelector('.container');
-  let utilityBar = document.querySelector('.utility-bar');
-  if (!utilityBar) {
-    utilityBar = document.createElement('div');
-    utilityBar.className = 'utility-bar';
-    if (container) {
-      container.appendChild(utilityBar);
+  // 检查是否已存在语言按钮
+  const existingLangBtn = document.getElementById('languageBtn');
+  if (existingLangBtn) {
+    // 使用已存在的语言按钮
+    const langBtn = existingLangBtn;
+    langBtn.title = '切换语言';
+  } else {
+    // 创建语言按钮（兼容旧版本）
+    const container = document.querySelector('.container');
+    let utilityBar = document.querySelector('.utility-bar');
+    if (!utilityBar) {
+      utilityBar = document.createElement('div');
+      utilityBar.className = 'utility-bar';
+      if (container) {
+        container.appendChild(utilityBar);
+      }
     }
+    
+    const langBtn = document.createElement('button');
+    langBtn.className = 'utility-btn';
+    langBtn.id = 'languageBtn';
+    langBtn.title = '切换语言';
+    langBtn.innerHTML = '<span class="utility-icon">🌐</span>';
+    utilityBar.insertBefore(langBtn, utilityBar.firstChild);
   }
-  
-  // 添加语言切换按钮到utility-bar
-  const langBtn = document.createElement('button');
-  langBtn.className = 'utility-btn';
-  langBtn.id = 'language-btn';
-  langBtn.title = 'Language';
-  langBtn.innerHTML = '<span class="utility-icon">🌐</span>';
-  
-  // 将语言按钮插入到utility-bar的第一个位置
-  utilityBar.insertBefore(langBtn, utilityBar.firstChild);
   
   // 创建语言选择下拉菜单
   const langDropdown = document.createElement('div');
@@ -117,12 +117,13 @@ function initI18n() {
   `;
   
   // 添加下拉菜单到容器
+  const container = document.querySelector('.container');
   if (container) {
     container.appendChild(langDropdown);
   }
   
   // 设置语言按钮点击事件
-  const languageBtn = document.getElementById('language-btn');
+  const languageBtn = document.getElementById('languageBtn');
   if (languageBtn) {
     languageBtn.addEventListener('click', (e) => {
       e.stopPropagation();
