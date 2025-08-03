@@ -705,6 +705,96 @@ input[type="range"]::-webkit-slider-thumb {
     visibility: visible;
 }
 
+/* 二维码模态框样式 */
+.qr-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.qr-modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-modal-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding-top: 30px;
+    max-width: 320px;
+    width: 90%;
+    position: relative;
+    text-align: center;
+}
+
+.qr-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.qr-close:hover {
+    color: white;
+}
+
+.qr-content h3 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.qr-image-container {
+    margin: 20px 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    display: inline-block;
+}
+
+.qr-image-container img {
+    max-width: 200px;
+    max-height: 200px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.qr-tip {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9em;
+    margin-top: 15px;
+    visibility: hidden;
+}
+
+@media (max-width: 480px) {
+    .qr-modal-content {
+        padding: 20px;
+        margin: 20px;
+    }
+    
+    .qr-image-container img {
+        max-width: 180px;
+        max-height: 180px;
+    }
+}
+
 .utility-option {
     background: transparent;
     border: none;

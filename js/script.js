@@ -399,27 +399,60 @@ countdownDisplay.textContent = displayText;
             option.addEventListener('click', function() {
                 const method = this.getAttribute('data-donate');
                 
-                const donateUrls = {
-                    paypal: 'https://www.paypal.com/donate?business=your-paypal-email@example.com',
-                    wechat: 'weixin://scanpay',
-                    alipay: 'alipay://platformapi/startapp?appId=20000067'
-                };
-                
-                const url = donateUrls[method];
-                if (url) {
-                    window.open(url, '_blank');
+                if (method === 'wechat' || method === 'alipay') {
+                    // 显示二维码模态框
+                    const qrModal = document.getElementById('qrModal');
+                    const qrImage = document.getElementById('qrImage');
+                    const qrTitle = document.getElementById('qrTitle');
+                    
+                    if (method === 'wechat') {
+                        qrImage.src = './img/qr-wechat.png';
+                        qrTitle.textContent = 'WeChat';
+                    } else if (method === 'alipay') {
+                        qrImage.src = './img/qr-alipay.jpg';
+                        qrTitle.textContent = 'Alipay';
+                    }
+                    
+                    qrModal.classList.add('show');
+                } else if (method === 'paypal') {
+                    // PayPal 保持外部链接
+                    window.open('https://www.paypal.me/xiaoffengxie', '_blank');
                 } else {
                     this.textContent = '⏳ 即将上线';
                     setTimeout(() => {
                         this.textContent = method === 'paypal' ? '💳 PayPal' : 
-                                         method === 'wechat' ? '📱 微信支付' : '💰 支付宝';
+                                         method === 'wechat' ? '📱 微信' : '💰 支付宝';
                     }, 1500);
                 }
                 
-                setTimeout(() => {
-                    donateDropdown.classList.remove('show');
-                }, 1500);
+                donateDropdown.classList.remove('show');
             });
+        }
+    });
+    
+    // 二维码模态框关闭事件
+    const qrModal = document.getElementById('qrModal');
+    const qrClose = document.querySelector('.qr-close');
+    
+    if (qrClose) {
+        qrClose.addEventListener('click', function() {
+            qrModal.classList.remove('show');
+        });
+    }
+    
+    // 点击模态框外部关闭
+    if (qrModal) {
+        qrModal.addEventListener('click', function(e) {
+            if (e.target === qrModal) {
+                qrModal.classList.remove('show');
+            }
+        });
+    }
+    
+    // ESC键关闭模态框
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && qrModal && qrModal.classList.contains('show')) {
+            qrModal.classList.remove('show');
         }
     });
     

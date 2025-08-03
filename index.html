@@ -109,8 +109,22 @@
             
             <div class="utility-dropdown" id="donateDropdown">
                 <button class="utility-option" data-donate="paypal">💳 PayPal</button>
-                <button class="utility-option" data-donate="wechat">📱 微信支付</button>
+                <button class="utility-option" data-donate="wechat">📱 微信</button>
                 <button class="utility-option" data-donate="alipay">💰 支付宝</button>
+            </div>
+
+            <!-- 二维码模态框 -->
+            <div id="qrModal" class="qr-modal">
+                <div class="qr-modal-content">
+                    <span class="qr-close">&times;</span>
+                    <div class="qr-content">
+                        <h3 id="qrTitle">扫码支付</h3>
+                        <div class="qr-image-container">
+                            <img id="qrImage" src="" alt="支付二维码">
+                        </div>
+                        <p class="qr-tip">请使用相应的App扫描二维码完成支付</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
