@@ -14,8 +14,16 @@ const i18n = {
     'paypal': '💳 PayPal',
     'wechat': '💬 微信',
     'alipay': '💰 支付宝',
-    'qrTitle': '扫码支付',
-    'qrTip': '请使用相应的App扫描二维码完成支付'
+    'qrTitle': '扫码支持',
+    'qrTip': '请使用相应的 App 扫描二维码',
+    // SEO相关翻译
+    'seoTitle': 'Rainee 雨声播放器 - 免费在线雨声模拟 | 助眠放松冥想专注',
+    'seoDescription': 'Rainee雨声播放器提供免费在线雨声模拟、白噪音播放服务。帮助睡眠、放松、冥想、集中精神。无需下载，即开即用，支持多语言界面，让您随时随地享受宁静的雨天氛围。',
+    'seoKeywords': '雨声模拟,白噪音,助眠,放松,冥想,集中精神,自然声音,在线播放,免费,rain sounds,white noise,sleep sounds,focus',
+    'seoOgTitle': 'Rainee 雨声播放器 - 免费在线雨声模拟',
+    'seoOgDescription': 'Rainee提供免费在线雨声模拟、白噪音播放。帮助睡眠、放松、冥想、集中精神。无需下载，即开即用，支持多语言界面。',
+    'seoTwitterTitle': 'Rainee 雨声播放器 - 免费在线雨声模拟',
+    'seoTwitterDescription': 'Rainee提供免费在线雨声模拟、白噪音播放。帮助睡眠、放松、冥想、集中精神。'
   },
   'en-US': {
     'rain': 'Rainy',
@@ -31,8 +39,15 @@ const i18n = {
     'paypal': '💳 PayPal',
     'wechat': '💬 WeChat',
     'alipay': '💰 Alipay',
-    'qrTitle': 'Scan to Pay',
-    'qrTip': 'Please use the corresponding app to scan the QR code to complete the payment'
+    'qrTitle': 'Scan to Donate',
+    'qrTip': 'Please use the corresponding app to scan the QR code to complete the payment',
+    'seoTitle': 'Rainee Rain Sounds Player - Free Online Rain Simulation for Sleep & Focus',
+    'seoDescription': 'Rainee offers free online rain simulation and white noise playback. Helps with sleep, relaxation, meditation, and concentration. No download needed, instant use with multi-language support.',
+    'seoKeywords': 'rain simulation,white noise,sleep aid,relaxation,meditation,focus,nature sounds,online playback,free,rain sounds,white noise,sleep sounds,concentration',
+    'seoOgTitle': 'Rainee Rain Sounds Player - Free Online Rain Simulation',
+    'seoOgDescription': 'Rainee provides free online rain simulation and white noise playback. Helps with sleep, relaxation, meditation, and concentration. No download needed, instant use with multi-language support.',
+    'seoTwitterTitle': 'Rainee Rain Sounds Player - Free Online Rain Simulation',
+    'seoTwitterDescription': 'Rainee provides free online rain simulation and white noise playback. Helps with sleep, relaxation, meditation, and concentration.'
   },
   'ja-JP': {
     'rain': 'あめ',
@@ -48,17 +63,24 @@ const i18n = {
     'paypal': '💳 PayPal',
     'wechat': '💬 WeChat',
     'alipay': '💰 Alipay',
-    'qrTitle': 'スキャンして支払う',
-    'qrTip': '対応するアプリでQRコードをスキャンして、支払いを完了してください'
+    'qrTitle': 'スキャンして応援',
+    'qrTip': '対応するアプリでQRコードをスキャンして、支払いを完了してください',
+    'seoTitle': 'Rainee 雨音プレイヤー - 無料オンライン雨音シミュレーション | 睡眠リラクゼーション瞑想集中',
+    'seoDescription': 'Raineeは無料のオンライン雨音シミュレーションとホワイトノイズ再生を提供します。睡眠、リラクゼーション、瞑想、集中力向上に役立ちます。ダウンロード不要で、即座に使用可能、多言語サポート付き。',
+    'seoKeywords': '雨音シミュレーション,ホワイトノイズ,睡眠改善,リラクゼーション,瞑想,集中力,自然音,オンライン再生,無料,雨音,ホワイトノイズ,睡眠音,集中',
+    'seoOgTitle': 'Rainee 雨音プレイヤー - 無料オンライン雨音シミュレーション',
+    'seoOgDescription': 'Raineeは無料のオンライン雨音シミュレーションとホワイトノイズ再生を提供します。睡眠、リラクゼーション、瞑想、集中力向上に役立ちます。',
+    'seoTwitterTitle': 'Rainee 雨音プレイヤー - 無料オンライン雨音シミュレーション',
+    'seoTwitterDescription': 'Raineeは無料のオンライン雨音シミュレーションとホワイトノイズ再生を提供します。睡眠、リラクゼーション、瞑想に役立ちます。'
   },
   'ko-KR': {
-    'rain': '비소리',
+    'rain': '비',
     'forest': '숲',
     'ocean': '바다',
     'city': '도시',
     'language': '언어 변경',
     'share': '이 페이지 공유',
-    'donate': '후원하기',
+    'donate': '커피 한 잔 사주기',
     'copyLink': '🔗 링크 복사',
     'favorite': '⭐ 즐겨찾기',
     'mobileShare': '📱 공유',
@@ -66,7 +88,14 @@ const i18n = {
     'wechat': '💬 WeChat',
     'alipay': '💰 Alipay',
     'qrTitle': '스캔하여 결제',
-    'qrTip': '해당 앱으로 QR 코드를 스캔하여 결제를 완료하세요'
+    'qrTip': '해당 앱으로 QR 코드를 스캔하여 결제를 완료하세요',
+    'seoTitle': 'Rainee 빗소리 플레이어 - 무료 온라인 빗소리 시뮬레이션 | 수면 이완 명상 집중',
+    'seoDescription': 'Rainee는 무료 온라인 빗소리 시뮬레이션과 화이트 노이즈 재생을 제공합니다. 수면, 이완, 명상, 집중력 향상에 도움을 줍니다. 다운로드 불필요, 즉시 사용 가능, 다국어 지원.',
+    'seoKeywords': '빗소리 시뮬레이션,화이트 노이즈,수면 개선,이완,명상,집중력,자연 소리,온라인 재생,무료,빗소리,화이트 노이즈,수면 소리,집중',
+    'seoOgTitle': 'Rainee 빗소리 플레이어 - 무료 온라인 빗소리 시뮬레이션',
+    'seoOgDescription': 'Rainee는 무료 온라인 빗소리 시뮬레이션과 화이트 노이즈 재생을 제공합니다. 수면, 이완, 명상, 집중력 향상에 도움을 줍니다.',
+    'seoTwitterTitle': 'Rainee 빗소리 플레이어 - 무료 온라인 빗소리 시뮬레이션',
+    'seoTwitterDescription': 'Rainee는 무료 온라인 빗소리 시뮬레이션과 화이트 노이즈 재생을 제공합니다. 수면, 이완, 명상에 도움을 줍니다.'
   }
 };
 
@@ -147,11 +176,83 @@ function updateUIText() {
   if (qrTip) {
     qrTip.textContent = t('qrTip');
   }
+
+  // 更新SEO meta标签
+  updateSEOMetaTags();
+}
+
+// 更新SEO meta标签
+function updateSEOMetaTags() {
+  const currentLang = getUserLanguage();
+  
+  // 更新title
+  const seoTitle = t('seoTitle');
+  if (seoTitle) {
+    document.title = seoTitle;
+  }
+
+  // 更新description
+  const seoDescription = t('seoDescription');
+  if (seoDescription) {
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', seoDescription);
+    }
+  }
+
+  // 更新keywords
+  const seoKeywords = t('seoKeywords');
+  if (seoKeywords) {
+    const metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (metaKeywords) {
+      metaKeywords.setAttribute('content', seoKeywords);
+    }
+  }
+
+  // 更新Open Graph标签
+  const seoOgTitle = t('seoOgTitle');
+  const seoOgDescription = t('seoOgDescription');
+  
+  if (seoOgTitle) {
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) {
+      ogTitle.setAttribute('content', seoOgTitle);
+    }
+  }
+  
+  if (seoOgDescription) {
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    if (ogDescription) {
+      ogDescription.setAttribute('content', seoOgDescription);
+    }
+  }
+
+  // 更新Twitter Card标签
+  const seoTwitterTitle = t('seoTwitterTitle');
+  const seoTwitterDescription = t('seoTwitterDescription');
+  
+  if (seoTwitterTitle) {
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle) {
+      twitterTitle.setAttribute('content', seoTwitterTitle);
+    }
+  }
+  
+  if (seoTwitterDescription) {
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDescription) {
+      twitterDescription.setAttribute('content', seoTwitterDescription);
+    }
+  }
+
+  // 更新html lang属性
+  document.documentElement.setAttribute('lang', currentLang);
 }
 
 // 初始化i18n
 function initI18n() {
   updateUIText();
+  updateSEOMetaTags(); // 确保首次加载时也更新SEO标签
   
   // 检查是否已存在语言按钮
   const existingLangBtn = document.getElementById('languageBtn');

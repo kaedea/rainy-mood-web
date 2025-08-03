@@ -3,12 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rainy Mood - 雨声播放器</title>
+    
+    <!-- SEO基础标签 -->
+    <title>Rainee 雨声播放器 - 免费在线雨声模拟 | 助眠放松冥想专注</title>
+    <meta name="description" content="Rainee雨声播放器提供免费在线雨声模拟、白噪音播放服务。帮助睡眠、放松、冥想、集中精神。无需下载，即开即用，支持多语言界面，让您随时随地享受宁静的雨天氛围。">
+    <meta name="keywords" content="雨声模拟,白噪音,助眠,放松,冥想,集中精神,自然声音,在线播放,免费,rain sounds,white noise,sleep sounds,focus">
+    <meta name="author" content="Rainee">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph标签 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Rainee 雨声播放器 - 免费在线雨声模拟">
+    <meta property="og:description" content="Rainee 提供免费在线雨声模拟、白噪音播放。帮助睡眠、放松、冥想、集中精神。无需下载，即开即用，支持多语言界面。">
+    <meta property="og:url" content="https://rain.kaedea.com">
+    <meta property="og:image" content="https://rain.kaedea.com/img/rainy-background.svg">
+    <meta property="og:site_name" content="Rainee 雨声播放器">
+    <meta property="og:locale" content="zh_CN">
+    
+    <!-- Twitter Card标签 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rainee 雨声播放器 - 免费在线雨声模拟">
+    <meta name="twitter:description" content="Rainee 提供免费在线雨声模拟、白噪音播放。帮助睡眠、放松、冥想、集中精神。">
+    <meta name="twitter:image" content="https://rain.kaedea.com/img/rainy-background.svg">
+    <meta name="twitter:creator" content="@rainee_app">
+    
+    <!-- 规范链接 -->
+    <link rel="canonical" href="https://rain.kaedea.com">
+    
+    <!-- 多语言支持 -->
+    <link rel="alternate" hreflang="zh-CN" href="https://rain.kaedea.com">
+    <link rel="alternate" hreflang="en-US" href="https://rain.kaedea.com/?lang=en">
+    <link rel="alternate" hreflang="ja-JP" href="https://rain.kaedea.com/?lang=ja">
+    <link rel="alternate" hreflang="ko-KR" href="https://rain.kaedea.com/?lang=ko">
+    <link rel="alternate" hreflang="x-default" href="https://rain.kaedea.com">
+    
+    <!-- 移动设备优化 -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Rainee">
+    <meta name="theme-color" content="#1a1a1a">
+    <meta name="msapplication-TileColor" content="#1a1a1a">
+    
+    <!-- 预加载关键资源 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    
+    <!-- 字体和样式 -->
     <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
+    
+    <!-- 图标 -->
     <link rel="icon" href="./img/favicon2.webp" type="image/webp">
+    <link rel="apple-touch-icon" href="./img/favicon2.webp">
+    <link rel="shortcut icon" href="./img/favicon2.webp">
+    
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Rainee 雨声播放器",
+      "alternateName": "Rainee",
+      "description": "Rainee提供免费在线雨声模拟、白噪音播放服务。帮助睡眠、放松、冥想、集中精神。无需下载，即开即用，支持多语言界面。",
+      "url": "https://rain.kaedea.com",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CNY"
+      },
+      "featureList": [
+        "雨声模拟",
+        "白噪音播放",
+        "睡眠辅助",
+        "放松冥想",
+        "集中精神",
+        "多语言支持",
+        "响应式设计",
+        "在线播放"
+      ],
+      "inLanguage": ["zh-CN", "en-US", "ja-JP", "ko-KR"],
+      "screenshot": "https://rain.kaedea.com/img/rainy-background.svg"
+    }
+    </script>
+    
     <script src="./bundle/index.js"></script>
     <script src="./js/i18n.js"></script>
 </head>
@@ -34,18 +116,18 @@
         <!-- 主要内容区 -->
         <div class="content">
             <!-- Logo区域 -->
-            <div class="logo">
+            <header class="logo">
                 <h1>Rainee<span class="registered">®</span></h1>
                 <p class="tagline">Sleep, Relax, Meditate</p>
                 <p class="tagline">Rain can heal & make everything better.</p>
-            </div>
+            </header>
 
             <!-- 播放控制区 -->
-            <div class="player-controls">
-                <button id="playButton" class="play-button">
-                    <div class="play-icon"></div>
+            <nav class="player-controls" aria-label="播放控制">
+                <button id="playButton" class="play-button" aria-label="播放" title="播放">
+                    <div class="play-icon" aria-hidden="true"></div>
                 </button>
-            </div>
+            </nav>
 
             <!-- 计时器控制 -->
             <div class="timer-control">
@@ -83,19 +165,19 @@
                 </div>
                 <div class="playlist">
                     <div class="playlist-item active" data-audio="rain-sound.mp3" data-background="rainy-background.svg" data-key="rain">
-                        <img src="./img/rain-thumbnail.svg" alt="雨声">
+                        <img src="./img/rain-thumbnail.svg" alt="雨声白噪音">
                         <span data-i18n="rain">雨声</span>
                     </div>
                     <div class="playlist-item" data-audio="forest-sound.mp3" data-background="forest-background.svg" data-key="forest">
-                        <img src="./img/forest-thumbnail.svg" alt="森林">
+                        <img src="./img/forest-thumbnail.svg" alt="森林白噪音">
                         <span data-i18n="forest">森林</span>
                     </div>
                     <div class="playlist-item" data-audio="ocean-sound.mp3" data-background="ocean-background.svg" data-key="ocean">
-                        <img src="./img/ocean-thumbnail.svg" alt="海洋">
+                        <img src="./img/ocean-thumbnail.svg" alt="海洋白噪音">
                         <span data-i18n="ocean">海洋</span>
                     </div>
                     <div class="playlist-item" data-audio="city-sound.mp3" data-background="city-background.svg" data-key="city">
-                        <img src="./img/city-thumbnail.svg" alt="城市">
+                        <img src="./img/city-thumbnail.svg" alt="城市白噪音">
                         <span data-i18n="city">城市</span>
                     </div>
                 </div>
@@ -121,11 +203,11 @@
                 <div class="qr-modal-content">
                     <span class="qr-close">&times;</span>
                     <div class="qr-content">
-                        <h3 id="qrTitle">扫码支付</h3>
+                        <h3 id="qrTitle">扫码支持</h3>
                         <div class="qr-image-container">
-                            <img id="qrImage" src="" alt="支付二维码">
+                            <img id="qrImage" src="" alt="扫码支付二维码">
                         </div>
-                        <p class="qr-tip">请使用相应的App扫描二维码完成支付</p>
+                        <p class="qr-tip">请使用相应的 App 扫描二维码</p>
                     </div>
                 </div>
             </div>
