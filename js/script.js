@@ -322,6 +322,33 @@ countdownDisplay.textContent = displayText;
     const shareDropdown = document.getElementById('shareDropdown');
     const donateDropdown = document.getElementById('donateDropdown');
     
+    // Tooltip自动隐藏功能
+    let tooltipTimeout = null;
+    
+    function hideTooltips() {
+        const tooltips = document.querySelectorAll('.utility-btn[data-tooltip]');
+        tooltips.forEach(btn => {
+            btn.style.setProperty('--tooltip-opacity', '0');
+            btn.style.setProperty('--tooltip-visibility', 'hidden');
+        });
+    }
+    
+    function showTooltip(btn) {
+        // 清除之前的定时器
+        if (tooltipTimeout) {
+            clearTimeout(tooltipTimeout);
+        }
+        
+        // 显示tooltip
+        btn.style.setProperty('--tooltip-opacity', '1');
+        btn.style.setProperty('--tooltip-visibility', 'visible');
+        
+        // 2 秒后隐藏tooltip
+        tooltipTimeout = setTimeout(() => {
+            hideTooltips();
+        }, 2000);
+    }
+    
     // 分享按钮点击事件
     shareBtn.addEventListener('click', function(e) {
         e.stopPropagation();
@@ -454,6 +481,27 @@ countdownDisplay.textContent = displayText;
         if (e.key === 'Escape' && qrModal && qrModal.classList.contains('show')) {
             qrModal.classList.remove('show');
         }
+    });
+    
+    // 添加tooltip自动隐藏功能到所有按钮
+    const tooltipButtons = document.querySelectorAll('.utility-btn[data-tooltip]');
+    tooltipButtons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            showTooltip(this);
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            // 鼠标离开时，如果定时器还在运行，不清除它
+            // 让tooltip在3秒后自动隐藏
+        });
+        
+        // 点击按钮时立即隐藏所有tooltips
+        button.addEventListener('click', function() {
+            hideTooltips();
+            if (tooltipTimeout) {
+                clearTimeout(tooltipTimeout);
+            }
+        });
     });
     
     // 点击页面其他区域关闭下拉菜单

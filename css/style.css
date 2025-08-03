@@ -698,16 +698,16 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 4px;
     font-size: 12px;
     white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
+    opacity: var(--tooltip-opacity, 0);
+    visibility: var(--tooltip-visibility, hidden);
     transition: opacity 0.1s ease, visibility 0.1s ease;
     pointer-events: none;
     z-index: 1000;
 }
 
 .utility-btn:hover::after {
-    opacity: 1;
-    visibility: visible;
+    opacity: var(--tooltip-opacity, 1);
+    visibility: var(--tooltip-visibility, visible);
 }
 
 /* 防止tooltip被按钮遮挡 */
