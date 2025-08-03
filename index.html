@@ -20,13 +20,13 @@
         
         <!-- 分享和捐款按钮 - 与language-selector对齐 -->
         <div class="utility-bar">
-            <button class="utility-btn" id="languageBtn" title="切换语言">
+            <button class="utility-btn" id="languageBtn" data-i18n="language">
                 <span class="utility-icon">🌐</span>
             </button>
-            <button class="utility-btn" id="shareBtn" title="分享">
+            <button class="utility-btn" id="shareBtn" data-i18n="share">
                 <span class="utility-icon">🔗</span>
             </button>
-            <button class="utility-btn" id="donateBtn" title="支持">
+            <button class="utility-btn" id="donateBtn" data-i18n="donate">
                 <span class="utility-icon">🎉</span>
             </button>
         </div>
@@ -105,15 +105,15 @@
             
             <!-- 简化下拉菜单 -->
             <div class="utility-dropdown" id="shareDropdown">
-                <button class="utility-option" data-share="copy">🔗 复制链接</button>
-                <button class="utility-option" data-share="favorite" id="favoriteBtn">⭐ 收藏</button>
-                <button class="utility-option" data-share="mobile-share" id="mobileShareBtn" style="display: none;">💌 分享</button>
+                <button class="utility-option" data-share="copy" data-i18n="copyLink">🔗 复制链接</button>
+                <button class="utility-option" data-share="favorite" id="favoriteBtn" data-i18n="favorite">⭐ 收藏</button>
+                <button class="utility-option" data-share="mobile-share" id="mobileShareBtn" style="display: none;" data-i18n="mobileShare">💌 分享</button>
             </div>
             
             <div class="utility-dropdown" id="donateDropdown">
-                <button class="utility-option" data-donate="paypal">💳 PayPal</button>
-                <button class="utility-option" data-donate="wechat">📱 微信</button>
-                <button class="utility-option" data-donate="alipay">💰 支付宝</button>
+                <button class="utility-option" data-donate="paypal" data-i18n="paypal">💳 PayPal</button>
+                <button class="utility-option" data-donate="wechat" data-i18n="wechat">📱 微信</button>
+                <button class="utility-option" data-donate="alipay" data-i18n="alipay">💰 支付宝</button>
             </div>
 
             <!-- 二维码模态框 -->
