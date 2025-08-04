@@ -121,6 +121,72 @@ body {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
+.play-button {
+    position: relative;
+    overflow: visible;
+}
+
+.play-button::before,
+.play-button::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+
+
+.play-button.playing::before,
+.play-button.playing::after {
+    animation: pulsate-fast 2s linear infinite;
+    opacity: 1;
+}
+
+.play-button:not(.playing)::before,
+.play-button:not(.playing)::after {
+    animation: pulsate-slow 4s linear infinite;
+}
+
+.play-button:not(.playing)::after {
+    animation-delay: 3s;
+}
+
+.play-button.playing::after {
+    animation-delay: 0.7s;
+}
+
+@keyframes pulsate-slow {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+@keyframes pulsate-fast {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
 .play-icon {
     width: 0;
     height: 0;
